@@ -39,7 +39,7 @@ messages %}
           ><i class="fa-solid fa-pen-to-square"></i
         ></a>
       </td>
-      {% elif transaction.total_amount > 500 %}
+      {% elif transaction.total_amount - transaction.amount_paid >= 500 %}
       <td class="border border-slate-500">Debt more than 500</td>
       {% else %}
       <td class="border border-slate-500">Cleared</td>
