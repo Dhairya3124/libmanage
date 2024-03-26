@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="p-2 text-xl"><b>Books</b></h1>
+<div class="p-2">
+  <button class="rounded-none bg-indigo-700 text-white p-1">
+    <a href="{{ url_for('importBooks') }}">Import Books</a>
+  </button>
+  <button class="rounded-none bg-indigo-700 text-white p-1">
+    <a href="{{ url_for('addbook') }}">Add a book</a>
+  </button>
+</div>
+{% with messages = get_flashed_messages() %} {% if messages %} {% for message in
+messages %}
+<div class="alert alert-warning flash-message">
+  <div class="p-2 w-50 bg-red-500 text-white">
+    <p>{{ message }}</p>
+  </div>
+</div>
+{% endfor %} {% endif %} {% endwith %}
+{% if books %}
+<div class="p-2">
+  <table class="border border-slate-500 table-auto" id="data">
+    <thead>
+      <tr>
+        <th class="border border-slate-500 p-2">BookID</th>
+        <th class="border border-slate-500 p-2">Title</th>
+        <th class="border border-slate-500 p-2">Authors</th>
+        <th class="border border-slate-500 p-2">Total Quantity</th>
+        <th class="border border-slate-500 p-2">Available Quantity</th>
+        <th class="border border-slate-500 p-2">Rent Count</th>
+        <th class="border border-slate-500 p-2">Edit</th>
+        <th class="border border-slate-500 p-2">Delete</th>
+        <th class="border border-slate-500 p-2">Info</th>
+      </tr>
+    </thead>
+    {% for book in books %}
+    <tr>
+      <td class="border border-slate-500">{{ book.book_id }}</td>
+      <td class="border border-slate-500">{{ book.title }}</td>
+      <td class="border border-slate-500">{{ book.authors }}</td>
+      <td class="border border-slate-500">{{ book.total_count }}</td>
+      <td class="border border-slate-500">{{ book.available_count }}</td>
+      <td class="border border-slate-500">{{ book.rent_count }}</td>
+      <td class="border border-slate-500 px-2">
+        <a href="{{ url_for('editbook', id=book.book_id) }}"
+          ><i class="fa-solid fa-pen-to-square"></i
+        ></a>
+      </td>
+      <td class="border border-slate-500 px-2">
+        <a href="{{ url_for('deletebook', id=book.book_id) }}"
+          ><i class="fa-solid fa-trash"></i
+        ></a>
+      </td>
+      <td class="border border-slate-500 px-2">
+        <a href="{{ url_for('book', id=book.book_id) }}"
+          ><i class="fa-solid fa-info"></i
+        ></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% else %}
+<p>No books found.</p>
+{% endif %}
+
+{% endblock %} {% block scripts %} {% endblock %}

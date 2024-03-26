@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block content %}
+
+{% if book %}
+<h1 class="text-xl p-2 bold italic items px-5">{{book.title}}</h1>
+<div class="grid place-items-center py-10">
+<table class="table-auto p-5" id="data">
+  <tr>
+    <td><b>BookID </b></td>
+    <td>{{book.book_id}}</td>
+  </tr>
+  <tr>
+    <td><b>Title </b></td>
+    <td>{{book.title}}</td>
+  </tr>
+  <tr>
+    <td><b>Authors </b></td>
+    <td>{{book.authors}}</td>
+  </tr>
+  <tr>
+    <td><b>Average Rating </b></td>
+    <td>{{book.average_rating}}</td>
+  </tr>
+  <tr>
+    <td><b>ISBN </b></td>
+    <td>{{book.isbn}}</td>
+  </tr>
+  <tr>
+    <td><b>ISBN13 </b></td>
+    <td>{{book.isbn13}}</td>
+  </tr>
+  <tr>
+    <td><b>Language Code </b></td>
+    <td>{{book.language_code}}</td>
+  </tr>
+  <tr>
+    <td><b>Number of Pages </b> </td>
+    <td>{{book.num_pages}}</td>
+  </tr>
+  <tr>
+    <td><b>Ratings Count </b></td>
+    <td>{{book.ratings_count}}</td>
+  </tr>
+</table>
+</div>
+
+    
+
+  {% else %}
+  <p>No books found.</p>
+  {% endif %} {% endblock %}

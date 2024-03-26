@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if error %}
+<div class="px-4 py-5 my-5 text-center">
+  <h1>500 Internal Server Error</h1>
+  <p class="lead">Sorry, something went wrong. Please try again later.</p>
+  <p class="lead">If the problem persists, please contact the system administrator.</p>
+  <p class="lead">Error: {{ error }}</p>
+
+    
+</div>
+{% endif %}
+
+    
+{% endblock %}

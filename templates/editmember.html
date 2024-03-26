@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-xl p-1 bold">Edit Member Details</h1>
+<br />
+{% if member %}
+<form action="" method="post" novalidate class="p-2">
+  {{form.hidden_tag()}}
+
+  <p>
+    {{form.name.label}}<br />
+    {{form.name(size=32, class="form-control form-control-sm border border-black
+    border-slate-500",value=member.name)}}
+  </p>
+  <br />
+  <p>
+    {{form.email.label}}<br />
+    {{form.email(size=32, class="form-control form-control-sm border
+    border-black border-slate-500",value=member.email)}}
+  </p>
+  <br />
+
+  <button class="rounded-none bg-indigo-700 text-white p-2">Edit Member</button>
+
+  <br />
+</form>
+{%endif%} {%endblock%}

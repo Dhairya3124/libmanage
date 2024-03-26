@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold"><b>BookStacker</b></h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">BookStacker is the application for the <a
+                href="https://frappe.io/dev-hiring-test" style="text-decoration: none; color: unset;">Developer Hiring
+                Test for Frappe. </a>
+                Efficient system for organizing, tracking, and managing library resources, facilitating easy access to books and other materials.
+                
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="/reports" class="btn btn-primary btn-lg bg-indigo-700 text-white px-4 p-1">Reports</a>
+            <a href="/books" class="btn btn-outline-secondary bg-indigo-700 text-white btn-lg px-4 p-1">Books</a>
+            <a href="/members" class="btn btn-outline-secondary bg-indigo-700 text-white btn-lg px-4 p-1">Members</a>
+            <a href="/transactions" class="btn btn-outline-secondary bg-indigo-700 text-white btn-lg px-4 p-1">Transactions</a>
+            
+
+        </div>
+    </div>
+</div>
+
+    
+    
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-xl p-1 bold">Import books</h1>
+<br />
+<form action="" method="post" novalidate>
+  {{form.hidden_tag()}}
+   <p>
+    {{form.title.label}}<br />
+    {{form.title(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p></br>
+  <p>
+    {{form.authors.label}}<br />
+    {{form.authors(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p></br>
+ 
+  <p>
+    {{form.isbn.label}}<br />
+    {{form.isbn(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p></br>
+ 
+  <p>
+    {{form.publisher.label}}<br />
+    {{form.publisher(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p></br>
+  <p>
+    {{form.number_of_books.label}}<br />
+    {{form.number_of_books(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p></br>
+  <p>
+    {{form.quantity_per_book.label}}<br />
+    {{form.quantity_per_book(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p></br>
+
+  <button class="rounded-none bg-indigo-700 text-white p-2">Import Books</button>
+</form>
+{%endblock%}

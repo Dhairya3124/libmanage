@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-xl p-1 bold"><b>Transactions</b></h1>
+{% with messages = get_flashed_messages() %} {% if messages %} {% for message in
+messages %}
+<div class="alert alert-warning flash-message">
+  <div class="p-2 bg-red-500 text-white">
+    <p>{{ message }}</p>
+  </div>
+</div>
+{% endfor %} {% endif %} {% endwith %} {% if transactions %}
+<div class="p-2">
+  <table class="border border-slate-500 table-auto">
+    <thead>
+      <tr>
+        <th class="border border-slate-500">TransactionID</th>
+        <th class="border border-slate-500">BookID</th>
+        <th class="border border-slate-500">MemberID</th>
+        <th class="border border-slate-500">Issue Date</th>
+        <th class="border border-slate-500">Return Date with Time</th>
+        <th class="border border-slate-500">Day Fee</th>
+        <th class="border border-slate-500">Total amount</th>
+        <th class="border border-slate-500">Amount Paid</th>
+        <th class="border border-slate-500">Return</th>
+      </tr>
+    </thead>
+    {% for transaction in transactions %}
+    <tr>
+      <td class="border border-slate-500">{{ transaction.rentID }}</td>
+      <td class="border border-slate-500">{{ transaction.bookID }}</td>
+      <td class="border border-slate-500">{{ transaction.memberID }}</td>
+      <td class="border border-slate-500">{{ transaction.rent_date }}</td>
+      <td class="border border-slate-500">{{ transaction.return_date }}</td>
+      <td class="border border-slate-500">{{ transaction.day_fee }}</td>
+      <td class="border border-slate-500">{{ transaction.total_amount }}</td>
+      <td class="border border-slate-500">{{ transaction.amount_paid }}</td>
+      {% if transaction.return_date == None %}
+      <td class="border border-slate-500">
+        <a href="{{ url_for('returnbook', id=transaction.rentID) }}"
+          ><i class="fa-solid fa-pen-to-square"></i
+        ></a>
+      </td>
+      {% elif transaction.total_amount > 500 %}
+      <td class="border border-slate-500">Debt more than 500</td>
+      {% else %}
+      <td class="border border-slate-500">Cleared</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% else %}
+<p>No transactions found.</p>
+{% endif %} {% endblock %}

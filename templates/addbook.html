@@ -1,0 +1,89 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-xl p-1 bold">Add a book</h1>
+<br />
+<form action="" method="post" novalidate class="p-2">
+  {{form.hidden_tag()}}
+  <p>
+    {{form.bookID.label(class="form-control-label")}}<br />
+    {{form.bookID(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p>
+  <br />
+  <p>
+    {{form.title.label}}<br />
+    {{form.title(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p>
+  <br />
+  <p>
+    {{form.authors.label}}<br />
+    {{form.authors(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p>
+  <br />
+  <p>
+    {{form.average_rating.label}}<br />
+    {{form.average_rating(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p>
+  <br />
+  <p>
+    {{form.isbn.label}}<br />
+    {{form.isbn(size=32, class="form-control form-control-sm border border-black
+    border-slate-500")}}
+  </p>
+  <br />
+  <p>
+    {{form.isbn13.label}}<br />
+    {{form.isbn13(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p>
+  <br />
+  <p>
+    {{form.language_code.label}}<br />
+    {{form.language_code(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p>
+  <br />
+  <p>
+    {{form.num_pages.label}}<br />
+    {{form.num_pages(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p>
+  <br />
+  <p>
+    {{form.ratings_count.label}}<br />
+    {{form.ratings_count(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p>
+  <br />
+  <p>
+    {{form.text_reviews_count.label}}<br />
+    {{form.text_reviews_count(size=32, class="form-control form-control-sm
+    border border-black border-slate-500")}}
+  </p>
+  <br />
+  <p>
+    {{form.publication_date.label}}<br />
+    {{form.publication_date(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p>
+  <br />
+  <p>
+    {{form.publisher.label}}<br />
+    {{form.publisher(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p>
+  <br />
+  <p>
+    {{form.total_count.label}}<br />
+    {{form.total_count(size=32, class="form-control form-control-sm border
+    border-black border-slate-500")}}
+  </p>
+  <br />
+  <button class="rounded-none bg-indigo-700 text-white p-2">Add a book</button>
+
+  <!-- <p class="border border-black p-2">{{form.submit()}}</p> -->
+  <br />
+</form>
+{%endblock%}

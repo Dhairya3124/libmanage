@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="text-xl p-1 bold"><b>Reports</b></h1>
+<br />
+<h2 class="text-xl p-1 bold"><b>Top 5 Books</b></h2>
+{% if books %}
+<div class="p-2">
+  <table class="border border-slate-500 table-auto">
+    <thead>
+      <tr>
+        <th class="border border-slate-500">Book ID</th>
+        <th class="border border-slate-500">Title</th>
+       
+      </tr>
+    </thead>
+    {% for book in books %}
+    <tr>
+      <td class="border border-slate-500">{{ book.book_id }}</td>
+      <td class="border border-slate-500">{{ book.title }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% else %}
+<p>No expenses found.</p>
+{% endif %}
+<br />
+<h2 class="text-xl p-1 bold"><b>Maximum amount payers</b></h2>
+{% if members %}
+<div class="p-2">
+  <table>
+  <tr>
+    <th class="border border-slate-500">MemberID</th>
+    <th class="border border-slate-500">Name</th>
+    <th class="border border-slate-500">Email</th>
+    <th class="border border-slate-500">Total Books Rented</th>
+    <th class="border border-slate-500">Debt</th>
+    <th class="border border-slate-500">Amount Paid</th>
+  </tr>
+  {% for member in members %}
+  <tr>
+    <td class="border border-slate-500">{{ member.memberID }}</td>
+    <td class="border border-slate-500">{{ member.name }}</td>
+    <td class="border border-slate-500">{{ member.email }}</td>
+    <td class="border border-slate-500">{{ member.total_books_rented }}</td>
+    <td class="border border-slate-500">{{ member.debt }}</td>
+    <td class="border border-slate-500">{{ member.amount_paid }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+{% else %}
+<p>No Members found.</p>
+
+
+</div>
+{% endif %} {% endblock %} {% block scripts %} {% endblock %}
+
